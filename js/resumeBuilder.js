@@ -28,7 +28,7 @@ var projects = {
 var bio = {
 	"name": "Kha Tran",
 	"role": "Web Developer",
-	"contact": {
+	"contacts": {
 		"mobile": "+84 909869829",
 		"email": "tranlekha1979@gmail.com",
 		"github": "khaletran",
@@ -41,24 +41,24 @@ var bio = {
 	}
 
 var education = {
-	"school": [
+	"schools": [
 
 		{"name": "Ho Chi Minh University of Science",
-		"city": "Ho Chi Minh, Vietnam",
+		"location": "Ho Chi Minh, Vietnam",
 		"degree": "Bachelor",
 		"major": "Information Technology",
 		"dates": '2014 - 2016',
 		"url": "http://www.hcmus.edu.vn/en/index.php"},
 
 		{"name": "Griffith University",
-		"city": "Brisbane, Queensland, Australia",
+		"location": "Brisbane, Queensland, Australia",
 		"degree": "Master",
 		"major": "Commerce",
 		"dates": '2009 - 2010',
 		"url": "https://www.griffith.edu.au/"},
 
 		{"name": "Ho Chi Minh University of Medicine and Pharmacy",
-		"city": "Ho Chi Minh, Vietnam",
+		"location": "Ho Chi Minh, Vietnam",
 		"degree": "Bachelor",
 		"major": "Medicine",
 		"dates": '1997 - 2003',
@@ -94,19 +94,19 @@ $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
 //$("#topContacts").append(HTMLcontactGeneric);
-var formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 $("#topContacts").append(formattedMobile);
 
-var formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 $("#topContacts").append(formattedEmail);
 
-var formattedGitHub = HTMLgithub.replace("%data%", bio.contact.github);
+var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
 $("#topContacts").append(formattedGitHub);
 
-var formattedTwitter = HTMLtwitter.replace("%data%", bio.contact.twitter);
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
 $("#topContacts").append(formattedTwitter);
 
-var formattedLocation = HTMLlocation.replace("%data%", bio.contact.location);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 $("#topContacts").append(formattedLocation);
 
 
@@ -189,23 +189,23 @@ projects.display();
 
 function displayEducation()
 {
-	for (var edu in education.school)
+	for (var edu in education.schools)
 	{
 		$("#education").append(HTMLschoolStart);
 
-		var formattedName=HTMLschoolName.replace("%data%", education.school[edu].name);
-		var formattedName2=formattedName.replace("#", education.school[edu].url);
-		var formattedDegree=HTMLschoolDegree.replace("%data%", education.school[edu].degree);
+		var formattedName=HTMLschoolName.replace("%data%", education.schools[edu].name);
+		var formattedName2=formattedName.replace("#", education.schools[edu].url);
+		var formattedDegree=HTMLschoolDegree.replace("%data%", education.schools[edu].degree);
 		var formattedNameDegree=formattedName2 + formattedDegree;
 		$(".education-entry:last").append(formattedNameDegree);
 
-		var formattedDates=HTMLschoolDates.replace("%data%", education.school[edu].dates);
+		var formattedDates=HTMLschoolDates.replace("%data%", education.schools[edu].dates);
 		$(".education-entry:last").append(formattedDates);
 
-		var formattedLocation=HTMLschoolLocation.replace("%data%",education.school[edu].city);
+		var formattedLocation=HTMLschoolLocation.replace("%data%",education.schools[edu].location);
 		$(".education-entry:last").append(formattedLocation);
 
-		var formattedMajor=HTMLschoolMajor.replace("%data%",education.school[edu].major);
+		var formattedMajor=HTMLschoolMajor.replace("%data%",education.schools[edu].major);
 		$(".education-entry:last").append(formattedMajor);
 	}
 
@@ -226,3 +226,4 @@ function displayEducation()
 	}
 }
 displayEducation();
+$("#mapDiv").append(googleMap);
