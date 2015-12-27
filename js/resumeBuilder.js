@@ -1,6 +1,6 @@
 var work = {
 	"jobs": [
-		{ "employer": "Industrial University of Ho Chi Minh",
+		{ "employer": "Industrial University of Ho Chi Minh City",
 		"url":"http://www.hui.edu.vn/en",
 		"title": "Lecturer",
 		"location": "Ho Chi Minh, Vietnam",
@@ -9,7 +9,7 @@ var work = {
 
 		{ "employer": "Tam Duc Heart Hospital",
 		"url":"http://www.tamduchearthospital.com/home/en",
-		"title": "Physician",
+		"title": "MD",
 		"location": "Ho Chi Minh, Vietnam",
 		"dates": "2003 - 2007",
 		"description": "I was a medical doctor at internal cardiology department."}
@@ -20,7 +20,7 @@ var projects = {
 	"projects": [
 	{ "title": "Electronic Commerce Undergraduate Curriculum Program",
 		"dates": "2012-2013",
-		"description": "I am a faculty's member of Commerce and Tourism to build the curriculum for undergradute electronic commerce program."
+		"description": "I am a faculty's member of Commerce and Tourism at Industrial University of Ho Chi Minh City to build the curriculum for undergradute electronic commerce program."
 		}
 	]
 }
@@ -34,7 +34,7 @@ var bio = {
 		"github": "khaletran",
 		"twitter": "@khaletran",
 		"location": "Ho Chi Minh, Vietnam"},
-	"welcomeMessage": "Hello World! Do the best for your interests!",
+	"welcomeMessage": "Hello World of Geek",
 	"skills": [
 		"awsomeness", "adaptability", "teamwork", "self-motivated"],
 	"bioPic": "images/urban.jpg"
@@ -130,11 +130,13 @@ function displayWork()
 		var formattedEmployer2=formattedEmployer.replace("#", work.jobs[job].url)
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 		var formattedEmployerTitle=formattedEmployer2 + formattedTitle;
-
 		$(".work-entry:last").append(formattedEmployerTitle);
+
 		var formattedDates=HTMLworkDates.replace("%data%", work.jobs[job].dates);
 		$(".work-entry:last").append(formattedDates);
 
+		var formattedLocation=HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		$(".work-entry:last").append(formattedLocation);
 		var formattedDescription=HTMLworkDescription.replace("%data%",work.jobs[job].description);
 		$(".work-entry:last").append(formattedDescription);
 	}
@@ -190,6 +192,14 @@ function displayEducation()
 
 		var formattedMajor=HTMLschoolMajor.replace("%data%",education.school[edu].major);
 		$(".education-entry:last").append(formattedMajor);
+	}
+
+	$("#education").append(HTMLonlineClasses);
+	for (var online in education.onlineCourses)
+	{
+
+		var formattedTitle=HTMLonlineTitle.replace("%data%",education.onlineCourses[online].title);
+		$(".education-entry:last").append(formattedTitle);
 	}
 }
 displayEducation();
