@@ -104,6 +104,7 @@ a {
   display: none;
 }
 
+
 .orange {
   background-color: #f5ae23;
 }
@@ -115,6 +116,7 @@ a {
 .white-text {
   font-weight: bold;
   color: #fff;
+
 }
 
 .gray {
@@ -141,6 +143,11 @@ a {
   padding: 10px;
 }
 
+
+.list-box {
+  line-height: 30px;
+}
+
 .center-content {
   padding: 2.5% 5%;
 }
@@ -149,10 +156,16 @@ ul {
   list-style-type: none;
 }
 
+#skills{
+  display:list-item ;
+  line-height:20px;
+}
+
 .biopic {
   float: left;
   padding: 10px;
-  width: 200px;
+  width: 150px;
+  height: 150px;
   display: none;
 }
 
@@ -168,6 +181,10 @@ span {
   text-align: center;
 }
 
+#project_img {
+  width:245px;
+  height:190px;
+}
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {

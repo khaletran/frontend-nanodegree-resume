@@ -4,29 +4,41 @@ var work = {
 		"url":"http://www.hui.edu.vn/en",
 		"title": "Lecturer",
 		"location": "Ho Chi Minh, Vietnam",
-		"dates": "2010 - ",
-		"description": "I am teaching undergraduate commerce courses at the faculty of Commerce and Tourism."},
+		"dates": "2010 - current",
+		"description": "I am teaching undergraduate courses on commerce at faculty of Commerce and Tourism."},
 
 		{ "employer": "Tam Duc Heart Hospital",
 		"url":"http://www.tamduchearthospital.com/home/en",
 		"title": "MD",
 		"location": "Ho Chi Minh, Vietnam",
 		"dates": "2003 - 2007",
-		"description": "I was a medical doctor at internal cardiology department."}
+		"description": "I was a medical doctor at department of internal cardiology."}
 	]
 }
 
 var projects = {
 	"projects": [
-	{ "title": "Electronic Commerce Undergraduate Curriculum Program",
-		"dates": "2012-2013",
-		"description": "I am a faculty's member of Commerce and Tourism at Industrial University of Ho Chi Minh City to build the curriculum for undergradute electronic commerce program."
-		}
+		{ "title": "Online resume",
+			"dates": "2015",
+			"description": "Project 2 Front End Web Developer at Udacity",
+			"images": "images/Project2.png"
+			},
+		{ "title": "Building portfolio",
+			"dates": "2015",
+			"description": "Project 1 Front End Web Developer at Udacity",
+			"images": "images/Project1.png"
+			},
+
+		{ "title": "Electronic Commerce Undergraduate Curriculum Program",
+			"dates": "2012-2013",
+			"description": "I am a faculty's member of Commerce and Tourism at Industrial University of Ho Chi Minh City to build the curriculum for undergradute electronic commerce program.",
+			"images": "images/IUH.png"
+			}
 	]
 }
 
 var bio = {
-	"name": "Kha Tran",
+	"name": "kha tran",
 	"role": "Web Developer",
 	"contacts": {
 		"mobile": "+84 909869829",
@@ -34,9 +46,9 @@ var bio = {
 		"github": "khaletran",
 		"twitter": "@khaletran",
 		"location": "Ho Chi Minh, Vietnam"},
-	"welcomeMessage": "Hello World of Geek",
+	"welcomeMessage": "Welcome To The World of Geeks",
 	"skills": [
-		"awsomeness", "adaptability", "teamwork", "self-motivated"],
+		"Awsomeness", "Adaptability", "Teamwork", "Self-motivated"],
 	"bioPic": "images/urban.jpg"
 	}
 
@@ -74,17 +86,16 @@ var education = {
 		{
 		"title": "Senior Web Developer",
 		"school": "Udacity",
-		"dates": '2016-',
+		"dates": 'Future',
 		"url": "https://www.udacity.com/course/senior-web-developer-nanodegree--nd802"
 		},
 		{
 		"title": "Machine Learning Engineer",
 		"school": "Udacity",
-		"dates": '2016-',
+		"dates": 'Future',
 		"url": "https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009"
 		}
 		]
-
 
 }
 
@@ -93,7 +104,6 @@ var formattedRole=HTMLheaderRole.replace("%data%", bio.role);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
-//$("#topContacts").append(HTMLcontactGeneric);
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 $("#topContacts").append(formattedMobile);
 
@@ -108,6 +118,9 @@ $("#topContacts").append(formattedTwitter);
 
 var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 $("#topContacts").append(formattedLocation);
+
+var formattedContacts=formattedMobile + formattedEmail + formattedGitHub + formattedTwitter + formattedLocation;
+$("#footerContacts").append(formattedContacts);
 
 
 var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
@@ -159,15 +172,18 @@ function displayWork()
 
 displayWork();
 
-function inName(name)
+function inName()
 {
-	var myString = name;
-	var myArray = myString.trim().split(" ");
-	myArray[0]=myArray[0].slice(0,1).toUpperCase() + myArray[0].slice(1).toLowerCase();
-	myArray[1]=myArray[1].toUpperCase();
-	myString = myArray.join(" ");
-	return myString;
+	var name =window.name;
+	name=name.trim().split(" ");
+	console.log(name);
+	name[1] = name[1].toUpperCase();
+	name[0] =name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+
+	return name[0] + " " + name[1];
 }
+var name =$("#name").text();
+
 $("#main").append(internationalizeButton);
 
 projects.display = function()
@@ -183,6 +199,9 @@ projects.display = function()
 
 		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 		$(".project-entry:last").append(formattedDescription);
+
+		var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images);
+		$(".project-entry:last").append(formattedImage);
 	}
 }
 projects.display();
