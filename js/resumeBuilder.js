@@ -1,18 +1,24 @@
-
 var work = {
 	"jobs": [
-	{ "employer": "IUH",
-	"title": "Lecturer",
-	"location": "Ho Chi Minh",
-	"dates": "2010 - Now",
-	"description": "Teaching as a lecturer on commerce courses."}
+		{ "employer": "Industrial University of Ho Chi Minh",
+		"title": "Lecturer",
+		"location": "Ho Chi Minh, Vietnam",
+		"dates": "2010 - ",
+		"description": "I am teaching undergraduate commerce courses at the faculty of Commerce and Tourism."},
+
+		{ "employer": "Ho Chi Minh Heart Institue",
+		"title": "Physician",
+		"location": "Ho Chi Minh, Vietnam",
+		"dates": "2003 - 2007",
+		"description": "I was a medical doctor at internal cardiology department."}
 	]
 }
+
 var projects = {
 	"projects": [
-	{ "title": "Electronic Commerce",
-		"dates": "2012",
-		"description": "EC project"
+	{ "title": "Electronic Commerce Curriculum",
+		"dates": "2012-",
+		"description": "I am a faculty's member of Commerce and Tourism to build the curriculum for undergradute electronic commerce program."
 		}
 	]
 }
@@ -21,11 +27,11 @@ var bio = {
 	"name": "Kha Tran",
 	"role": "Web Developer",
 	"contact": {
-		"mobile": "+84909869829",
+		"mobile": "+84 909869829",
 		"email": "tranlekha1979@gmail.com",
 		"github": "khaletran",
 		"twitter": "@khaletran",
-		"location": "Ho Chi Minh"},
+		"location": "Ho Chi Minh, Vietnam"},
 	"welcomeMessage": "Hello World! Do the best for your interests!",
 	"skills": [
 		"awsomeness", "fun", "fall asleep easily", "socialize"],
@@ -34,18 +40,33 @@ var bio = {
 
 var education = {
 	"school": [
-	{"name": "Griffith University",
-	"city": "Brisbane",
-	"degree": "Master",
-	"major": "Commerce",
-	"dates": 2010,
-	"url": "http://example.com"}],
+
+		{"name": "Ho Chi Minh University of Science",
+		"city": "Ho Chi Minh, Vietnam",
+		"degree": "Bachelor",
+		"major": "Information Technology",
+		"dates": '2014 - 2016',
+		"url": "http://www.hcmus.edu.vn/en/index.php"},
+
+		{"name": "Griffith University",
+		"city": "Brisbane, Queensland, Australia",
+		"degree": "Master",
+		"major": "Commerce",
+		"dates": '2009 - 2010',
+		"url": "https://www.griffith.edu.au/"},
+
+		{"name": "Ho Chi Minh University of Medicine and Pharmacy",
+		"city": "Ho Chi Minh, Vietnam",
+		"degree": "Bachelor",
+		"major": "Medicine",
+		"dates": '1997 - 2003',
+		"url": "http://moodle.yds.edu.vn/yds2/?Content=thongtinDV&idTin=14115&menu=448"}],
 
 	"onlineCourses": [
 	{
-		"title": "JavaScript",
+		"title": "Front End Web Developer",
 		"school": "Udacity",
-		"dates": 2015,
+		"dates": '2015-',
 		"url": "http://www.udacity.com/course"
 		}]
 }
@@ -54,7 +75,6 @@ var formattedName=HTMLheaderName.replace("%data%", bio.name);
 var formattedRole=HTMLheaderRole.replace("%data%", bio.role);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
-
 
 //$("#topContacts").append(HTMLcontactGeneric);
 var formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
@@ -119,6 +139,7 @@ function displayWork()
 
 displayWork();
 
+
 function inName(name)
 {
 	var myString = name;
@@ -146,3 +167,27 @@ projects.display = function()
 	}
 }
 projects.display();
+
+
+function displayEducation()
+{
+	for (var edu in education.school)
+	{
+		$("#education").append(HTMLschoolStart);
+
+		var formattedName=HTMLschoolName.replace("%data%", education.school[edu].name);
+		var formattedDegree=HTMLschoolDegree.replace("%data%", education.school[edu].degree);
+		var formattedNameDegree=formattedName + formattedDegree;
+		$(".education-entry:last").append(formattedNameDegree);
+
+		var formattedDates=HTMLschoolDates.replace("%data%", education.school[edu].dates);
+		$(".education-entry:last").append(formattedDates);
+
+		var formattedLocation=HTMLschoolLocation.replace("%data%",education.school[edu].city);
+		$(".education-entry:last").append(formattedLocation);
+
+		var formattedMajor=HTMLschoolMajor.replace("%data%",education.school[edu].major);
+		$(".education-entry:last").append(formattedMajor);
+	}
+}
+displayEducation();
