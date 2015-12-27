@@ -68,9 +68,24 @@ var education = {
 	{
 		"title": "Front End Web Developer",
 		"school": "Udacity",
-		"dates": '2015-',
-		"url": "http://www.udacity.com/course"
-		}]
+		"dates": '2015-2016',
+		"url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+		},
+		{
+		"title": "Senior Web Developer",
+		"school": "Udacity",
+		"dates": '2016-',
+		"url": "https://www.udacity.com/course/senior-web-developer-nanodegree--nd802"
+		},
+		{
+		"title": "Machine Learning Engineer",
+		"school": "Udacity",
+		"dates": '2016-',
+		"url": "https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009"
+		}
+		]
+
+
 }
 
 var formattedName=HTMLheaderName.replace("%data%", bio.name);
@@ -194,12 +209,20 @@ function displayEducation()
 		$(".education-entry:last").append(formattedMajor);
 	}
 
-	$("#education").append(HTMLonlineClasses);
+	$(".education-entry:last").append(HTMLonlineClasses);
 	for (var online in education.onlineCourses)
 	{
-
 		var formattedTitle=HTMLonlineTitle.replace("%data%",education.onlineCourses[online].title);
-		$(".education-entry:last").append(formattedTitle);
+		var formattedSchool=HTMLonlineSchool.replace("%data%",education.onlineCourses[online].school);
+		var formattedTitleSchool = formattedTitle + formattedSchool;
+		var formattedTitleSchool2=formattedTitleSchool.replace("#",education.onlineCourses[online].url);
+		$(".education-entry:last").append(formattedTitleSchool2);
+
+		var formattedDates=HTMLonlineDates.replace("%data%",education.onlineCourses[online].dates);
+		$(".education-entry:last").append(formattedDates);
+
+		var formattedURL = HTMLonlineURL.replace("%data%",education.onlineCourses[online].url);
+		$(".education-entry:last").append(formattedURL);
 	}
 }
 displayEducation();
