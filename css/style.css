@@ -97,11 +97,15 @@ a {
   font-size: 18px;
   color: #f3f3f3;
   line-height: 28px;
+  display:flex;
+  flex-wrap:wrap;
 }
 
 #skills-h3 {
   color: #f5ae23;
-  display: none;
+ /* display: none;*/
+ display:flex;
+ flex-wrap:wrap;
 }
 
 
@@ -166,7 +170,9 @@ ul {
   padding: 10px;
   width: 150px;
   height: 150px;
-  display: none;
+  /*display: none;*/
+  display:flex;
+  flex-wrap:wrap;
 }
 
 img {
@@ -205,10 +211,11 @@ span {
   }
   .biopic {
     width: 150px;
+    padding:30px;
   }
-  .welcome-message {
+ /* .welcome-message {
     display: none;
-  }
+  }*/
 }
 
 #map {
