@@ -1,12 +1,14 @@
 var work = {
 	"jobs": [
 		{ "employer": "Industrial University of Ho Chi Minh",
+		"url":"http://www.hui.edu.vn/en",
 		"title": "Lecturer",
 		"location": "Ho Chi Minh, Vietnam",
 		"dates": "2010 - ",
 		"description": "I am teaching undergraduate commerce courses at the faculty of Commerce and Tourism."},
 
-		{ "employer": "Ho Chi Minh Heart Institue",
+		{ "employer": "Tam Duc Heart Hospital",
+		"url":"http://www.tamduchearthospital.com/home/en",
 		"title": "Physician",
 		"location": "Ho Chi Minh, Vietnam",
 		"dates": "2003 - 2007",
@@ -16,8 +18,8 @@ var work = {
 
 var projects = {
 	"projects": [
-	{ "title": "Electronic Commerce Curriculum",
-		"dates": "2012-",
+	{ "title": "Electronic Commerce Undergraduate Curriculum Program",
+		"dates": "2012-2013",
 		"description": "I am a faculty's member of Commerce and Tourism to build the curriculum for undergradute electronic commerce program."
 		}
 	]
@@ -34,7 +36,7 @@ var bio = {
 		"location": "Ho Chi Minh, Vietnam"},
 	"welcomeMessage": "Hello World! Do the best for your interests!",
 	"skills": [
-		"awsomeness", "fun", "fall asleep easily", "socialize"],
+		"awsomeness", "adaptability", "teamwork", "self-motivated"],
 	"bioPic": "images/urban.jpg"
 	}
 
@@ -125,8 +127,9 @@ function displayWork()
 		$("#workExperience").append(HTMLworkStart);
 
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedEmployer2=formattedEmployer.replace("#", work.jobs[job].url)
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-		var formattedEmployerTitle=formattedEmployer + formattedTitle;
+		var formattedEmployerTitle=formattedEmployer2 + formattedTitle;
 
 		$(".work-entry:last").append(formattedEmployerTitle);
 		var formattedDates=HTMLworkDates.replace("%data%", work.jobs[job].dates);
@@ -138,7 +141,6 @@ function displayWork()
 }
 
 displayWork();
-
 
 function inName(name)
 {
@@ -168,7 +170,6 @@ projects.display = function()
 }
 projects.display();
 
-
 function displayEducation()
 {
 	for (var edu in education.school)
@@ -176,8 +177,9 @@ function displayEducation()
 		$("#education").append(HTMLschoolStart);
 
 		var formattedName=HTMLschoolName.replace("%data%", education.school[edu].name);
+		var formattedName2=formattedName.replace("#", education.school[edu].url);
 		var formattedDegree=HTMLschoolDegree.replace("%data%", education.school[edu].degree);
-		var formattedNameDegree=formattedName + formattedDegree;
+		var formattedNameDegree=formattedName2 + formattedDegree;
 		$(".education-entry:last").append(formattedNameDegree);
 
 		var formattedDates=HTMLschoolDates.replace("%data%", education.school[edu].dates);
