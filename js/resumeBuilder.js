@@ -190,7 +190,7 @@ function inName()
 
 	return name[0] + " " + name[1];
 }
-var name1 =$("#name").text();
+var name =$("#name").text();
 
 $("#main").append(internationalizeButton);
 
